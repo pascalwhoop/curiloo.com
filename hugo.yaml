@@ -18,15 +18,15 @@ params:
     # full (100%), wide (90rem), normal (1280px)
     width: wide
   search:
-    enable: false
+    enable: true
 
 menu:
   main:
-    - name: Blog
-      pageRef: /blog
+    - name: Technology
+      pageRef: /technology
       weight: 1
     - name: About
-      pageRef: /about
+      url: https://pascalbrokmeier.de/about
       weight: 2
     - name: Search
       weight: 4
