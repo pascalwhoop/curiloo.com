@@ -1,7 +1,7 @@
 +++
 title = 'N100 Mini PC homeserver build'
 date = 2023-10-01T11:17:14+02:00
-draft = true
+draft = false
 author = 'Pascal'
 cover = "server.jpeg"
 +++
