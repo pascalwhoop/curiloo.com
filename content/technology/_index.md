@@ -1,5 +1,4 @@
 ---
 title: Technology
+type: blog
 ---
-
-foo bar

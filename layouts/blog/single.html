@@ -1,6 +1,7 @@
 {{ define "main" }}
   <div class='mx-auto flex {{ partial "utils/page-width" . }}'>
-    {{ partial "sidebar.html" (dict "context" . "disableSidebar" true "displayPlaceholder" true) }}
+    <!-- no sidebar for single posts -->
+    {{/* partial "sidebar.html" (dict "context" . "disableSidebar" true "displayPlaceholder" true) */}}
     {{ partial "toc.html" . }}
     <article class="w-full break-words flex min-h-[calc(100vh-var(--navbar-height))] min-w-0 justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
       <main class="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
@@ -8,7 +9,14 @@
         {{ partial "breadcrumb.html" . }}
         {{- if .Params.Cover }}
             <br>
-            <img src="{{.Params.Cover}}" alt="">
+            {{ $img := .Page.Resources.GetMatch (printf "*%s*" (.Params.Cover)) }}
+            {{- $options := .Params.Options | default "1200x500 Center webp q80" -}}
+            {{ $img = $img.Fill $options }}
+            {{ if $img }}
+                <img loading="lazy" style="max-width: 100%; width: auto; height: auto;" src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}">
+            {{ else }}
+                {{ errorf "No image found for cover Name: %s, Page %s" .Params.Cover .Params.Title }}
+            {{ end }}
         {{ end -}}
         <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">{{ .Title }}</h1>
         {{ with $date := .Date }}

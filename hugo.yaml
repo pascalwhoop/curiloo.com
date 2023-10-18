@@ -3,6 +3,9 @@ languageCode: en-us
 title: Curiloo
 # theme: hextra
 enableEmoji: true
+ignorefiles: 
+  - "old/.*"
+
 
 module:
   imports:
@@ -24,6 +27,12 @@ menu:
   main:
     - name: Technology
       pageRef: /technology
+      weight: 1
+    - name: Business
+      pageRef: /business
+      weight: 1
+    - name: Life
+      pageRef: /life
       weight: 1
     - name: About
       url: https://pascalbrokmeier.de/about

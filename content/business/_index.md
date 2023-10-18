@@ -1,0 +1,4 @@
+---
+title: Business
+type: blog
+---

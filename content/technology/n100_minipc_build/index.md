@@ -29,7 +29,7 @@ first time consider hosting large data volume services such as a movie library o
 self-hosted Nextcloud + backup solution for phones and laptops. Of course I still need to
 perform off-site backups of the most critical pieces of information, but in the case of a
 catastrophic event in my apartment, I'll survive loosing my collection of Stargate SG1
-episodes :grinning_face_with_sweat:
+episodes.
 
 ## Target Setup
 
