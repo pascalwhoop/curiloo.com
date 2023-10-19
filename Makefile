@@ -4,3 +4,5 @@ article:
 
 serve:
 	hugo server --buildDrafts --disableFastRender
+build:
+	hugo --minify
