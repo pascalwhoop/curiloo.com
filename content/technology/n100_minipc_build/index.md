@@ -173,9 +173,14 @@ UUID=e311ff2f-0937-44c6-99d2-225ab626f7d6 	/mnt/parity1        	ext4    	default
 ```
 
 {{< callout type="info" emoji="💡" >}}
-As a few days before my new Mini PC arrived, I also got 2x4TB 2.5inch disks from my dad that he had lying around, I also decided to upgrade from 4x2TB to 4x4TB. 
-I therefore went to [this comparison website](https://geizhals.eu/?cat=hde7s&sort=r&xf=3263_3%7E8457_Conventional+Magnetic+Recording+(CMR)%7E958_4000) 
-(German) and filtered for low idle power disks. The most efficient 4TB+ disk with non-shingled recording was the [Seagate SkyHawk +Rescue 4TB](https://geizhals.eu/seagate-skyhawk-rescue-4tb-st4000vx016-a2677177.html)
+
+As a few days before my new Mini PC arrived, I also got 2x4TB 2.5inch disks from my dad
+that he had lying around, I also decided to upgrade from 4x2TB to 4x4TB.  I therefore
+went to [this comparison
+website](https://geizhals.eu/?cat=hde7s&sort=r&xf=3263_3%7E8457_Conventional+Magnetic+Recording+(CMR)%7E958_4000)
+(German) and filtered for low idle power disks. The most efficient 4TB+ disk with
+non-shingled recording was the [Seagate SkyHawk +Rescue
+4TB](https://geizhals.eu/seagate-skyhawk-rescue-4tb-st4000vx016-a2677177.html)
 
 {{< /callout >}}
 
@@ -188,17 +193,17 @@ Before the expansion:
 ├──────────────────┬────────┬───────┬────────┬───────────────────────────────┬──────┬────────────┤
 │ MOUNTED ON       │   SIZE │  USED │  AVAIL │              USE%             │ TYPE │ FILESYSTEM │
 ├──────────────────┼────────┼───────┼────────┼───────────────────────────────┼──────┼────────────┤
-│ /                │ 232.7G │ 14.9G │ 205.9G │ [#...................]   6.4% │ ext4 │ /dev/sda2  │
+│ /                │ 232.7G │ 14.9G │ 205.9G │ [#...................]   6.4% │ ext4 │ /dev/sda2  $$│
 │ /mnt/mergerdisk1 │   1.8T │  1.6T │  66.1G │ [##################..]  91.3% │ ext4 │ /dev/sde1  │
 │ /mnt/mergerdisk2 │   1.8T │  1.7T │     0B │ [##################..]  94.9% │ ext4 │ /dev/sdc1  │
-│ /mnt/mergerdisk3 │   1.8T │  1.7T │  42.3G │ [##################..]  92.6% │ ext4 │ /dev/sdd1  │
+│ /mnt/mergerdisk3 │   1.8T │  1.7T │  42.3G │ [##################..]  92.6% │ ext4 │ /dev/sdd1  │$$
 │ /mnt/parity1     │   1.8T │  1.8T │  44.5G │ [###################.]  97.6% │ ext4 │ /dev/sdb1  │
 ╰──────────────────┴────────┴───────┴────────┴───────────────────────────────┴──────┴────────────╯
 ```
 
-After the expansion: 
+After the expa$$nsion: 
 <!-- TODO -->
-
+$$
 ### Spinning down disks on idle
 
 As I had already installed `hd-idle-go` earlier, I was able to simply activate it by
