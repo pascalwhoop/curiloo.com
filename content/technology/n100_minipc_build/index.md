@@ -673,7 +673,7 @@ visual way to managing them.
 
 ## Configuring network access
 
-Now that all the services are running as desired, I want to do 3 things:
+Now that all the services are running as desired, I wanted to do 3 things:
 
 1. remote access to the server (while not exposing SSH ports)
 2. remote access to the services via HTTPS
@@ -694,13 +694,32 @@ And I was up and running
 
 ### Remote access to services via HTTPS
 
-This one was a bit harder as I had to expose the services all behind a traefik reverse proxy. I had to do a bit of reading to get this right. 
+This one was a bit harder as I had to expose the services all behind a traefik reverse
+proxy. I had to do a bit of reading to get this right. Essentially I wanted to leverage a
+reverse proxy (traefik) to expose all my services via HTTPS. I also wanted to have a
+single point of authentication for all services. However, some services (like nextcloud)
+cannot be protected via an additional authentication layer, else the native clients will
+not work. So I ultimately decided to, for now, leverage BASIC auth for all services that
+I do not believe have solid security and keep the remaining services exposed through
+their native interfaces.
+
+One additional layer of security is that none of my services show up on websites like
+shodan.io.  The reason is that many of my services are exposed via subdomains or
+subpaths. However, the subdomains are not registered in DNS. Instead, I use the `host`
+filter in traefik to route the requests to the correct backend service. This allows me to
+do something like `cloud.dkj4fkj.curiloo.com` and have it route to my nextcloud instance.
+People always criticise security through obscurity but I am a strong believer in not
+being the lowest hanging fruit. Of course the first nextcloud instances that get hacked
+are the ones that are easily discoverable. 
+
 
 <!--TODO still need to write this up-->
 
 ## Fixing rogue interrupts
 
-I noticed that one core in the CPU was basically running at 100\% all the time. 
+OK so few days in, my services are running smoothly but I noticed my server constantly had a high baseload of 10-20\% CPU usage.
+
+When looking closer, I noticed that one core in the CPU was basically running at 100\% all the time. 
 However when looking at `htop` or `top` I couldn't see any process that was causing this.
 
 
@@ -737,3 +756,101 @@ To persist it I simply added the blacklist to my `/etc/modprobe.d/blacklist.conf
 ```bash
 echo "blacklist intel_lpss_pci" > /etc/modprobe.d/no_lspss.conf
 ```
+
+
+## Running a llama.cpp-python API server
+
+At this point I wanted to get a bit more adventurous and try to run a LLM on this tiny machine. 6w TDP, that should be enough to run a state of the art LLM no? Well it turns out,
+it does run, although performance is not at all what one would expect. I get about ~ 1 token / second.
+
+
+```yaml
+version: "3.9"
+
+services:
+  local_ai:
+    image: quay.io/go-skynet/local-ai:v1.40.0
+    container_name: local_ai
+    tty: true # enable colorized logs
+    restart: always # should this be on-failure ?
+    ports:
+      - 8041:8080
+    env_file:
+      - stacks/localai/.env
+    volumes:
+      - ${DOCKER_ROOT}/localai/models:/models
+      - ${DOCKER_ROOT}/localai/images/:/tmp/generated/images/
+    command: ["/usr/bin/local-ai"]
+  big-agi:
+    image: ghcr.io/enricoros/big-agi:main
+    container_name: big-agi
+    ports:
+      - "3000:3000"
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      OPENAI_API_HOST: ${OPENAI_API_HOST}
+    command: ["next", "start", "-p", "3000"]
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.agi.rule=Host(`ai.dkj4fkj.curiloo.com`)"
+      - "traefik.http.routers.agi.entrypoints=https"
+      - "traefik.http.routers.agi.middlewares=myauth@file"
+      - "traefik.http.services.agi.loadbalancer.server.port=3000"
+
+```
+
+This setup did allow me however to have a personal AI chatbot interface hosted on my
+machine and accessible from anywhere. It's like a personal ChatGPT. I since then pivoted
+to a self-hosted version of [typing mind](https://www.typingmind.com/) which offers even
+more features, but I am strongly tempted to get a second, more powerful machine to run an 
+LLM server, ensuring all my data stays on my machine.
+
+## Bitwarden / Vaultwarden
+
+I finally also decided to pivot back from a fully file-based password management to a more
+modern solution. I had been using [pass](https://www.passwordstore.org/) for a while but
+it was always cumbersome to use on phones. Dealing with sync issues of the git repo and the lack of a browser
+extension also bothered me. When I learned that Bitwarden has the ability to auto-generate emails in the form of
+`<domain>@yourdomain.com` I was sold. This way, each website has a unique email address and I can easily
+track which website is selling my data. Also, it makes it harder for data vendors to link my data across websites.
+
+I first had passbolt running but then decided to go with Bitwarden. However, the official
+Bitwarden docker image stack is a bit complex. They spin up a large number of containers
+and I wanted to keep it simple. So I decided to go with
+[vaultwarden](https://github.com/dani-garcia/vaultwarden) which is a community fork of
+Bitwarden, built in rust and being almost fully API compatible.
+
+```yaml
+version: "3.9"
+services:
+  # docker run -d --name vaultwarden -v /vw-data/:/data/ --restart unless-stopped -p 80:80 vaultwarden/server:latest
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    env_file:
+      - stacks/vaultwarden/.env
+    volumes:
+      - ${DOCKER_ROOT}/vaultwarden:/data/
+    ports:
+      - 8233:80
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.vaultwarden.rule=Host(`vault.dkj4fkj.curiloo.com`)"
+      - "traefik.http.routers.vaultwarden.entrypoints=https"
+      - "traefik.http.services.vaultwarden.loadbalancer.server.port=80"
+```
+
+## Conclusion
+
+I am very happy with my new homeserver. It's a great little machine that is still
+extremely potent.  6w TDP, after a few HDD upgrades 16TB of storage and currently running
+!21! docker containers.  I can share my media library with my family and I already have
+so many more plans for it.  The best thing is, thanks to DynDNS, this server is both
+accessible worldwide and easily portable. Next time I move, I simply take it with me and
+plug it in, configure port forwarding on my new router and I am good to go.
+
+It also shows that you do not need $2000 in cloud bills to host a few services. I have
+over a dozen of services running, including video, audio, text, file sync, password
+management, monitoring, and more. All of this for less than $10/month in electricity
+costs and on a machine that cost around $150.
