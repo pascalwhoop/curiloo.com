@@ -147,11 +147,9 @@ systemctl daemon-reload
 mount -a
 cp /mnt/vault/Backup/Raspberry/etc/snapraid.conf /etc/snapraid.conf
 ```
-$$
-
-sudo mergerfs -o category.create=mfs,nonempty,defaults,allow_other,minfreespace=50G,fsname=mergerfs /mnt/mergerdisk1:/mnt/mergerdisk2:/mnt/mergerdisk3 /mnt/vault
 
 ```
+sudo mergerfs -o category.create=mfs,nonempty,defaults,allow_other,minfreespace=50G,fsname=mergerfs /mnt/mergerdisk1:/mnt/mergerdisk2:/mnt/mergerdisk3 /mnt/vault
 # Static information about the filesystems.
 # See fstab(5) for details.
 
@@ -201,9 +199,44 @@ Before the expansion:
 ╰──────────────────┴────────┴───────┴────────┴───────────────────────────────┴──────┴────────────╯
 ```
 
-After the expa$$nsion: 
-<!-- TODO -->
-$$
+After the expansion: 
+
+```
+⋊> pascalwhoop@homeserver ⋊> ~/c/curiloo.com on main ⨯ duf
+╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ 6 local devices                                                                                  │
+├──────────────────┬─────────┬────────┬────────┬───────────────────────────────┬──────┬────────────┤
+│ MOUNTED ON       │    SIZE │   USED │  AVAIL │              USE%             │ TYPE │ FILESYSTEM │
+├──────────────────┼─────────┼────────┼────────┼───────────────────────────────┼──────┼────────────┤
+│ /                │  232.7G │ 140.8G │  80.0G │ [############........]  60.5% │ ext4 │ /dev/sda2  │
+│ /mnt/mergerdisk1 │    3.6T │   1.9T │   1.5T │ [##########..........]  51.9% │ ext4 │ /dev/sde1  │
+│ /mnt/mergerdisk2 │    3.6T │   1.9T │   1.5T │ [##########..........]  52.5% │ ext4 │ /dev/sdb1  │
+│ /mnt/mergerdisk3 │    3.6T │   1.9T │   1.5T │ [##########..........]  53.0% │ ext4 │ /dev/sdc1  │
+│ /mnt/parity1     │    3.6T │   1.8T │   1.6T │ [#########...........]  49.6% │ ext4 │ /dev/sdd1  │
+╰──────────────────┴─────────┴────────┴────────┴───────────────────────────────┴──────┴────────────╯
+```
+
+To transition between disks, I had to do a bit of a dance which took a few days. I could at most swap out 2 disks in any one go, 
+since I needed to transfer all the data, meaning I needed both disks to be online at the same time. Also, while I could have done a
+`dd` raw copy, I decided to do a file-system level copy to minimise issues with sector alignments. I wanted maximum performance out
+of the new disks. 
+
+So the steps were
+
+1. insert 2 new disks, keep the most likely to fail ones in, 
+2. `fdisk` creating partitions, `mkfs.ext4` formatting the partitions, mounting
+3. perform an `rsync` from OLD to NEW (2 copies in parallel in a tmux with a `btm` monitoring the disk IO)
+4. swap out UUID's in the fstab
+5. repeat for the other 2 disks
+6. re-mount the mergerfs disk
+7. run a snapraid sync
+8. run a full scrub
+
+This took a few days but the result is ~ 4.5TB of fresh space. Of course an enterprise
+setup would have required much less labor and no downtime, but it also would have cost me
+a lot more hardware and energy consumption. 
+
+
 ### Spinning down disks on idle
 
 As I had already installed `hd-idle-go` earlier, I was able to simply activate it by
@@ -214,8 +247,6 @@ sudo systemctl enable hd-idle --now
 ```
 
 Now my disks spin down after 10 minutes which means most of the time, the disks only consume their standby power.
-
-
 
 
 ### Setting up Grafana monitoring
