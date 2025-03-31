@@ -1,8 +1,6 @@
-FROM node:lts-stretch as build
+FROM hugomods/hugo:exts-0.119.0
 WORKDIR app
 
-COPY package* .
+COPY . .
 # see https://github.com/gatsbyjs/gatsby/issues/20698#issuecomment-576353427
-RUN npm install
-
-RUN npm run build
+RUN hugo --minify
