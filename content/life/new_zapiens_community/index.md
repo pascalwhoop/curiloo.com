@@ -17,17 +17,23 @@ tags:
   - nutrition
   - sleep
   - mental health
-excerpt: A comprehensive summary of key learnings and discussions from the New Zapiens community, covering topics from exercise and nutrition to sleep optimization and mental health.
+excerpt:
+  A comprehensive summary of key learnings and discussions from the New Zapiens community, covering
+  topics from exercise and nutrition to sleep optimization and mental health.
 ---
 
+> Note that this report was generated using AI by feeding it the conversation history in the
+> whatsapp group since July 2023. I make no claims to the accuracy of the claims. This was simply
+> useful for myself to get a quick overview of the community's positions. I used Gemini 2.5 Pro as
+> well as a manual export in txt format. It was mostly meant as a way for me to quickly sanity check
+> products I find online and whether they have been discussed in this
+> [specific community](https://newzapiens.com/).
 
 This report summarizes the key insights, discussions, recommendations, and points of contention
 shared within the New Zapiens WhatsApp group transcript. The community consists of individuals
 interested in health optimization, longevity, biohacking, fitness, and preventive medicine.
 Discussions range from practical tips and product reviews to complex scientific debates and
 philosophical considerations about healthspan and lifespan.
-
-> Note that this report was generated using AI by feeding it the conversation history in the whatsapp group since July 2023. I make no claims to the accuracy of the claims. This was simply useful for myself to get a quick overview of the community's positions.
 
 **I. Exercise & Fitness**
 
