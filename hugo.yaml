@@ -1,11 +1,20 @@
+# more inspiration from https://github.com/imfing/hextra/blob/main/exampleSite/hugo.yaml
 baseURL: https://curiloo.com
 languageCode: en-us
 title: Curiloo
-# theme: hextra
 enableEmoji: true
-ignorefiles: 
-  - "old/.*"
 
+services:
+  googleAnalytics:
+    ID: G-2YGKX11C3M
+
+enableInlineShortcodes: true
+
+
+outputs:
+  home: [HTML]
+  page: [HTML]
+  section: [HTML, RSS]
 
 module:
   imports:
@@ -19,9 +28,22 @@ markup:
 params:
   page:
     # full (100%), wide (90rem), normal (1280px)
-    width: wide
+    width: normal
   search:
     enable: true
+    type: flexsearch
+
+  flexsearch:
+    # index page by: content | summary | heading | title
+    index: content
+    # full | forward | reverse | strict
+    # https://github.com/nextapps-de/flexsearch/#tokenizer-prefix-search
+    tokenize: forward
+
+  theme:
+    # light | dark | system
+    default: system
+    displayToggle: true
 
 menu:
   main:

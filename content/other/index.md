@@ -1,43 +1,4 @@
 ---
-title: ''
-date: 2023-10-01T09:04:27+02:00
-# draft: false
-# toc : false
-layout : hextra-home
-# type: single
-# cascade:
-# - _target:
-#   type: blog
----
-
-
-<div class="hx:mt-6 hx:mb-6">
-{{< hextra/hero-headline >}}
-  Curiloo
-{{< /hextra/hero-headline >}}
-</div>
-<div class="hx:mb-12">
-{{< hextra/hero-subtitle >}}
-  Sharing explorative thoughts
-{{< /hextra/hero-subtitle >}}
-</div>
-
-
-{{< callout type="info" emoji="💡" >}}
-This website is a collection of various thoughts on technology, science, longevity,
-philosophy and business. If you want to get in contact because you enjoy the content,
-do reach out [via mail](mailto:hello@curiloo.com).  
-{{< /callout >}}
-
-{{< cards >}}
-  {{< card link="/technology" title="Technology" image="/images/technology.jpg" >}}
-  {{< card link="/life" title="Life" subtitle="Here I share my thoughts and experiences on life." image="/images/life.jpg" >}}
-  {{< card link="/business" title="Business" image="/images/business.jpg" >}}
-{{< /cards >}}
-
-<!-- EXAMPLE BELOW -->
-<!--
----
 title: Hextra Theme
 layout: hextra-home
 ---
@@ -113,4 +74,3 @@ layout: hextra-home
     subtitle="Syntax highlighting / Table of contents / SEO / RSS / LaTeX / Mermaid / Customizable / and more..."
   >}}
 {{< /hextra/feature-grid >}}
--->
