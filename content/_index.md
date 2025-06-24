@@ -30,9 +30,27 @@ do reach out [via mail](mailto:hello@curiloo.com).
 {{< /callout >}}
 
 {{< cards >}}
-  {{< card link="/technology" title="Technology" image="/images/technology.jpg" >}}
-  {{< card link="/life" title="Life" subtitle="Here I share my thoughts and experiences on life." image="/images/life.jpg" >}}
-  {{< card link="/business" title="Business" image="/images/business.jpg" >}}
+  <!--  -->
+  {{< card 
+      link="/technology" 
+      title="Technology" 
+      subtitle="Projects and learnings on technology."
+      image="/images/technology.jpg" 
+  >}}
+  <!--  -->
+  {{< card 
+      link="/life" title="Life" 
+      subtitle="Here I share my thoughts and experiences on life." 
+      image="/images/life.jpg" 
+  >}}
+  <!--  -->
+  {{< card 
+      link="/business" 
+      title="Business" 
+      subtitle="Insights on business and entrepreneurship."
+      image="/images/business.jpg" 
+  >}}
+
 {{< /cards >}}
 
 <!-- EXAMPLE BELOW -->
