@@ -2,7 +2,6 @@
 title: Order in Pubsub, is it a big deal?
 author: Pascal Brokmeier
 layout: post
-cover: cover.jpg
 cover-credit: 
 mathjax: true
 date: 2020-02-14
@@ -19,6 +18,8 @@ tags:
  - terraform
 excerpt: "Order in publish subscribe systems often isn't assured. But how bad is it really? I ran an experiment on GCP PubSub, testing how high the rate of messages needs to be before order isn't assured anymore"
 ---
+
+{{< fimg cover.jpg Crop "1920x1080" />}}
 
 When talking to clients, the topic of message ordering came up a few times when talking
 about GCP Pub/Sub or event architecture cornerstones like it. 

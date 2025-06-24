@@ -3,12 +3,13 @@ title: Getting the capture date in a .NEF Nikon raw file with python
 author: Pascal Brokmeier
 layout: post
 date: 2018-01-24
-cover: cover.jpg
 mathjax: false
 tags:
  - technology
 excerpt:
 ---
+
+{{< fimg cover.jpg Crop "1920x1080" />}}
 
 While importing all of my Google Photos into my local library in the process of deleting everything, I needed to get the capture times of about 20k `.NEF` files from my library. I used those to compare files with the same name (`DSC_1000.jpg` `DSC_1000.NEF`) to verify if these are in-fact the same files or just have the same serial number.
 

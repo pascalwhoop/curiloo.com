@@ -3,8 +3,9 @@ title = 'N100 Mini PC homeserver build'
 date = 2023-10-01T11:17:14+02:00
 draft = false
 author = 'Pascal'
-cover = "server.jpeg"
 +++
+
+{{< fimg server Crop "1920x1080" />}}
 
 A few years ago I got into the home server building habbit. I started with a typical
 tower PC during my student years but after moving around a lot, needed something more
@@ -44,7 +45,7 @@ I will remain minimalistic with my setup, relying on 3 core components:
 Unfortunately, the usual USB boot did not work as I had anticipated. For some reason, [as others had also shared online](https://www.reddit.com/r/buildapc/comments/v5sw9o/you_all_are_literally_my_last_hope_i_bought_a/), my mini PC too did not support USB booting for some obscure reason. 
 
 
-{{< fimg pxe_bios Resize "1200x" />}}
+{{< fimg pxe_bios Resize "1920x" />}}
 
 It may have been the fact that I used an SSD as a boot device but ultimately, it was all I had so I looked into [PXE](https://wiki.archlinux.org/title/Preboot_Execution_Environment). Turns out there is an awesome project [netboot](https://netboot.xyz/docs/kb/networking/edgerouter) which allows you to boot into a PXE environment. I went ahead and set up a PXE host on my EdgeRouter and was able to boot into the netboot environment. Bonus points for being able to boot into a variety of OSes, including Arch Linux for any machine I may need to install in the future.
 
@@ -81,7 +82,7 @@ commit
 save
 ```
 
-{{< fimg netboot Resize "1200x" />}}
+{{< fimg netboot Resize "1920x" />}}
 
 
 
@@ -90,7 +91,7 @@ save
 Because Netboot doesn't offer Manjaro, I simply installed Arch instead. Ultimately, all I need is an arch base with `yay`. 
 For that I followed the [arch installation guide](https://wiki.archlinux.org/title/Installation_guide)
 
-{{< fimg arch_linux_boot Resize "1200x" />}}
+{{< fimg arch_linux_boot Resize "1920x" />}}
 
 The high level steps were:
 
@@ -260,7 +261,7 @@ because I prefer manage all my packages via the proper package manager.
 yay -S grafana-agent
 ```
 
-{{< fimg grafana Resize "1200x" />}}
+{{< fimg grafana Resize "1920x" />}}
 
 {{% details title="/etc/grafana-agent.yaml" closed="true" %}}
 ```yaml
@@ -699,7 +700,7 @@ Now all the containers simply spin up within a few seconds and I can access them
 respective ports. Of course, it's also useful to have portainer to get a slightly more
 visual way to managing them.
 
-{{< fimg docker Resize "1200x" />}}
+{{< fimg docker Resize "1920x" />}}
 
 
 ## Configuring network access

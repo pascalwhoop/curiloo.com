@@ -3,13 +3,14 @@ title: Spin down HDDs on Linux for extra quiet desktops at night
 author: Pascal Brokmeier
 layout: post
 date: 2017-11-22
-cover: cover.jpg
 options: "1200x500 Bottom"
 mathjax: false
 tags:
  - technology
 excerpt: "How to get your hard drives to shut up while you are trying to sleep at night"
 ---
+
+{{< fimg cover.jpg Crop "1920x1080" />}}
 
 I often up/download large amounts of files while sleeping. I am still in the process of uploading my 600GB essential personal data offsite backup to AWS Glacier. With an average upload speed of 50-150KB, that takes a loooong time. So here are some tips to get the PC to shut up while asleep. This assumes your main disk is an SSD.
 

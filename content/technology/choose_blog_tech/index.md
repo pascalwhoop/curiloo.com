@@ -3,14 +3,13 @@ title: Choosing the right blog technology in 2017
 author: Pascal Brokmeier
 layout: post
 date: 2017-11-11
-cover: cover.jpg
 mathjax: false
 tags: 
  - technology
 excerpt: A guide to finding the right balance between absolute dead-simple usability and tech-savvy workflow allowing for a range of customisation and control abot your blog or website.
 ---
 
-![](images/2017-11-11/cover.jpg)
+{{< fimg cover.jpg Crop "1920x1080" />}}
 
 **TL;DR:** A list of choices ranging from the publishing service medium.com all the way to custom server,tech,build tools etc.
 

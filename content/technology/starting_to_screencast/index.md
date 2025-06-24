@@ -2,7 +2,6 @@
 title: Starting to screencast about my thesis and machine learning
 author: Pascal Brokmeier
 layout: post
-cover: cover.jpg
 date: 2018-03-21
 cover-credit: 
 mathjax: false
@@ -15,6 +14,8 @@ tags:
  - linux
 excerpt: I am starting to upload screencasts about my developments of the agent for my thesis. This is the initial video
 ---
+
+{{< fimg cover.jpg Crop "1920x1080" />}}
 
 > An updated version of this post is available [here](/technology/2018/04/15/Turning_your_Linux_computer_into_a_screencast_station_for_pareto_principle_level_professionality.html)
 

@@ -2,7 +2,6 @@
 title: "Visiting the HambiBleibt demonstration"
 author: Pascal Brokmeier
 layout: post
-cover: cover.jpg
 cover-credit: 
 mathjax: false
 date: 2018-09-10
@@ -18,6 +17,8 @@ tags:
  - demonstration
 excerpt: I visited the demonstrations against the RWE coal mine nearby Cologne and talked to some participants to see first hand how the story is seen from the people that are involved. 
 ---
+
+{{< fimg cover.jpg Crop "1920x1080" />}}
 
 Yesterday I visited the demonstrations against RWEs large lignite (aka brown coal) factory and their plans to cut down
 the last parts of a formerly huge forest. It's close to my home and I decided to see for myself what so many people are
@@ -59,7 +60,7 @@ peculiar. Especially for a person that cannot speak German, it must be troubling
 without having contact to the outside world. On the other hand I still want to believe that a police force will not just
 take someone and throw them into prison for no reason. 
 
-{{< fimg DSC_7065.jpg Resize "1200x" />}}
+{{< fimg DSC_7065.jpg Resize "1920x" />}}
 
 I let myself fall back and started talking to the police. I was told they saw attacks with Molotov cocktails and stones
 in the past weeks. I assume these attacks must be reported somewhere, especially since the police carries large cameras
@@ -70,7 +71,7 @@ Sunday. There was no comment on the burned bus that was holding materials for th
 which was most likely burned down by someone, unless it (ironically a former fire-truck) suffered spontaneous
 self-combustion. An investigation is pending.
 
-{{< fimg DSC_7070.jpg Resize "1200x" />}}
+{{< fimg DSC_7070.jpg Resize "1920x" />}}
 
 Something else I noticed: when the procession reached the camp on the outskirts of the forest, one face-mask wearing
 resident of the camp apparently came too close to the demonstration and the police followed him for a little while. I
@@ -78,7 +79,7 @@ guess, when wearing face masks during a demonstration, you walk a fine line ([li
 law](https://dejure.org/gesetze/VersG/17a.html)). Once he moved away, they let him go. Another figure has been standing
 on the outskirts of the demonstration, watching the whole process from far away. 
 
-{{< fimg DSC_7072.jpg Resize "1200x" />}}
+{{< fimg DSC_7072.jpg Resize "1920x" />}}
 
 The official part was over and therefore the police left. I took my bike and walked towards the camp, assuming that
 while I don't look *like one of them* I also don't have to worry to be mistaken with a police officer. The mood in the
@@ -125,7 +126,7 @@ It was a nice talk and although we just kept uncovering more and more reasons fo
 such talks, also between both opposing fronts, were more common. 
 
 
-{{< fimg DSC_7075.jpg Resize "1200x" />}}
+{{< fimg DSC_7075.jpg Resize "1920x" />}}
 
 
 ## Conclusion
@@ -150,6 +151,6 @@ the panels all over the hills. But its again theirs, and if solar panels end up 
 would defend them just as they defend the coal today. 
 
 
-{{< fimg DSC_7058.jpg Resize "1200x" />}}
+{{< fimg DSC_7058.jpg Resize "1920x" />}}
 
 

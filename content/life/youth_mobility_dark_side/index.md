@@ -2,9 +2,8 @@
 title: The Dark Side of Youth Mobility
 author: Pascal Brokmeier
 layout: post
-cover: cover.jpg
-cover-credit: 
 date: 2018-04-16
+cover-credit: 
 mathjax: false
 categories:
  - society
@@ -14,6 +13,8 @@ tags:
  - mobility
 excerpt: Looking at what happens when young professionals can move around the world as they please and at the places they leave behind
 ---
+
+{{< fimg cover.jpg Crop "1920x1080" />}}
 
 Do you have this friend who always talks about her next city to live in? Or do you know this obnoxious guy who's living
 in your city and is always trash-talking how your city operates? He's probably from somewhere else and everything is

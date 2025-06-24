@@ -2,8 +2,6 @@
 title: My XPS customizing diary
 author: Pascal Brokmeier
 layout: post
-cover: cover.jpg
-cover-credit: 
 date: 2018-08-11
 mathjax: false
 categories:
@@ -16,6 +14,8 @@ tags:
  - hardware
 excerpt: A collection of modifications I did to my XPS to make it my very personal work machine.
 ---
+
+{{< fimg cover.jpg Crop "1920x1080" />}}
 
 In the beginning of 2018 I started looking for a laptop that would serve as my mobile workstation. I bike a lot so there
 is a weight restriction to it. After a lengthy research phase where I compared the Thinkpads, Huawei Matebooks and some

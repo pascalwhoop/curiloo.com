@@ -2,7 +2,6 @@
 title: Enabling Tensorboard to see what's happening during training of an LSTM on Keras using a Timeseries Generator
 author: Pascal Brokmeier
 layout: post
-cover: cover.jpg
 date: 2018-03-30
 cover-credit: 
 mathjax: false
@@ -17,6 +16,8 @@ tags:
 - data science
 excerpt: 
 ---
+
+{{< fimg cover.jpg Crop "1920x1080" />}}
 
 Learning neural networks is still very messy, so without tools such as tensorboard, it would be really hard to really
 comprehend what is happening. Unfortunately, it's not super easy to get tensorboard working out-of-the-box with Keras

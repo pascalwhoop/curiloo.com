@@ -3,7 +3,6 @@ title: Optimizing a Jekyll Blog with minification, image optimisation and cachin
 author: Pascal Brokmeier
 layout: post
 date: 2017-11-03
-cover: cover.jpg
 banner: false
 mathjax: false
 tags: 
@@ -12,6 +11,8 @@ tags:
  - blog
 excerpt: Moving away from a clean and technical but unoptimized jekyll blog to a CDN backed, more efficient blog with dynamic image sizing and more.
 ---
+
+{{< fimg cover.jpg Crop "1920x1080" />}}
 
 **Where I was:**
 
