@@ -35,13 +35,13 @@ do reach out [via mail](mailto:hello@curiloo.com).
       link="/technology" 
       title="Technology" 
       subtitle="Projects and learnings on technology."
-      image="/images/technology.jpg" 
+      image="/images/technology_resized.jpg" 
   >}}
   <!--  -->
   {{< card 
       link="/life" title="Life" 
       subtitle="Here I share my thoughts and experiences on life." 
-      image="/images/life.jpg" 
+      image="/images/life_resized.jpg" 
   >}}
   <!--  -->
   {{< card 
